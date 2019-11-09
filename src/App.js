@@ -14,7 +14,8 @@ class App extends React.Component {
         1478348234: {
           imageUrl:
             "https://is3-ssl.mzstatic.com/image/thumb/Video123/v4/4f/7e/21/4f7e21a1-f172-1ad8-268a-d3754b664842/source/600x600bb.jpg",
-          trackName: "Circles"
+          trackName: "Circles",
+          artistName: "Post Malone"
         }
       },
       displayedTrackIds: Array(25).fill(1478348234) // the value 1478348234 is the trackId for Post Malone's Circles track
@@ -97,7 +98,9 @@ class App extends React.Component {
                   src={tracks[trackId].imageUrl}
                   alt="artwork"
                 />
-                <h2>{tracks[trackId].trackName}</h2>
+                <h2 className="track-title">{`${tracks[trackId].artistName} - ${
+                  tracks[trackId].trackName
+                }`}</h2>
               </div>
             ))}
           </div>
