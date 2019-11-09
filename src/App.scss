@@ -1,5 +1,10 @@
 $widget-height: 3rem;
 $li-margin-height: 6px;
+$top-ten-box-color: goldenrod;
+
+button {
+  cursor: pointer;
+}
 
 ol {
   list-style: none;
@@ -23,37 +28,44 @@ li {
   width: 100%;
   display: flex;
   justify-content: center;
-  align-items: center;
+  padding-top: 2rem;
+}
+
+@mixin size-to-container-width() {
+  width: 100%;
+  min-width: 500px; /* Based on the Top10 button still showing in one line */
+  max-width: 960px;
 }
 
 .container {
-  width: 90%;
-  min-width: 400px;
+  @include size-to-container-width();
 }
 
 .horizontal-list-box {
-  background-color: goldenrod;
+  @include size-to-container-width();
+  background-color: $top-ten-box-color;
   position: absolute;
   display: none;
-  width: 90%;
   padding-top: $li-margin-height;
 
   &[data-active] {
     display: initial;
+    z-index: 2;
   }
-}
-
-.search-bar {
-  height: $widget-height;
-  display: flex;
 }
 
 @mixin shadow($color: rgba(black, 0.1)) {
   box-shadow: 0 0.2rem 1rem $color;
 }
 
-.input {
+.search-bar {
   @include shadow();
+
+  height: $widget-height;
+  display: flex;
+}
+
+.input {
   display: block;
   -webkit-appearance: none;
   appearance: none;
@@ -73,7 +85,7 @@ li {
 }
 
 .top-ten-button {
-  background-color: goldenrod;
+  background-color: $top-ten-box-color;
   color: black;
 
   font-size: 2rem;
@@ -93,4 +105,30 @@ li {
 .search-button {
   margin: 0 auto;
   display: block;
+}
+
+.tracks {
+  margin: 2rem auto 30px;
+
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-gap: 30px;
+}
+
+.track-container {
+  position: relative;
+}
+
+.track-image {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.track-title {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  padding: 10px;
+  background-color: rgba(255, 255, 255, 0.2);
 }
