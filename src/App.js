@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 import styles from "./App.module.scss";
 import ItemModal from "./ItemModal/ItemModal";
@@ -118,30 +119,40 @@ class App extends React.Component {
               <FontAwesomeIcon icon={faSearch} />
             </button>
           </div>
-          <div className={styles["tracks"]}>
-            {displayedTrackIds.map((trackId, index) => {
-              const { imageUrl, trackName, artistName } = tracks[trackId];
+          {isAwaitingResponse ? (
+            <CircularProgress
+              className={styles["spinner"]}
+              variant="indeterminate"
+            />
+          ) : (
+            <div className={styles["tracks"]}>
+              {displayedTrackIds.map((trackId, index) => {
+                const { imageUrl, trackName, artistName } = tracks[trackId];
 
-              return (
-                <div
-                  className={styles["track-container"]}
-                  key={index}
-                  onClick={() => {
-                    this.setState({ isModalOpen: true, modalTrackId: trackId });
-                  }}
-                >
-                  <img
-                    className={styles["track-image"]}
-                    src={imageUrl}
-                    alt="artwork"
-                  />
-                  <h2
-                    className={styles["track-title"]}
-                  >{`${artistName} - ${trackName}`}</h2>
-                </div>
-              );
-            })}
-          </div>
+                return (
+                  <div
+                    className={styles["track-container"]}
+                    key={index}
+                    onClick={() => {
+                      this.setState({
+                        isModalOpen: true,
+                        modalTrackId: trackId
+                      });
+                    }}
+                  >
+                    <img
+                      className={styles["track-image"]}
+                      src={imageUrl}
+                      alt="artwork"
+                    />
+                    <h2
+                      className={styles["track-title"]}
+                    >{`${artistName} - ${trackName}`}</h2>
+                  </div>
+                );
+              })}
+            </div>
+          )}
           <ItemModal
             isModalOpen={isModalOpen}
             closeModal={() => {
