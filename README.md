@@ -1,6 +1,6 @@
 <div align="center">
 <h1>Media Search - Amit Novick</h1>
-<img src="screenshot.png" height="300" >
+<img src="screenshot.png" height="600" >
 </div>
 
 ## Notes:
