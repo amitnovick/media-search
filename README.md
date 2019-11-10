@@ -1,6 +1,13 @@
-## Media Search by Amit Novick
+<div align="center">
+<h1>Media Search - Amit Novick</h1>
+<img src="screenshot.png" height="300" >
+</div>
 
-<img src="screenshot.png">
+## Notes:
+
+- Due to CORS policy on iTunes Search API limitation, only `localhost:3000` will receive responses.
+
+# Create-React-App docs
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
