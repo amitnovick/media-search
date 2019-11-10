@@ -1,0 +1,54 @@
+$li-margin-height: 0.5rem;
+
+.ol {
+  list-style: none;
+  background-color: goldenrod;
+  padding-top: $li-margin-height;
+  max-width: 30rem;
+  min-width: 300px;
+  width: 100%;
+  padding-left: 1rem;
+  margin-top: 0;
+
+  z-index: 2;
+  position: absolute;
+
+  overflow-y: auto;
+
+  max-height: 14rem;
+
+  border-top: 0;
+
+  display: none;
+  &[data-active] {
+    display: block;
+  }
+}
+
+.li {
+  border: 2px solid grey;
+  border-radius: 4px;
+
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-right: 0.5rem;
+
+  padding: 2px;
+  margin-bottom: $li-margin-height;
+
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  white-space: nowrap;
+
+  cursor: pointer;
+}
+
+.button {
+  background-color: goldenrod;
+  color: black;
+  font-size: 2rem;
+  height: 3rem;
+  width: 4.5rem;
+  outline: none;
+  border: none;
+}
