@@ -1,5 +1,6 @@
 import React from "react";
 import Modal from "react-modal";
+import PropTypes from "prop-types";
 
 import styles from "./styles.module.scss";
 
@@ -72,5 +73,11 @@ class ItemModal extends React.PureComponent {
     );
   }
 }
+
+ItemModal.propTypes = {
+  isModalOpen: PropTypes.bool.isRequired,
+  closeModal: PropTypes.func.isRequired,
+  track: PropTypes.object
+};
 
 export default ItemModal;
