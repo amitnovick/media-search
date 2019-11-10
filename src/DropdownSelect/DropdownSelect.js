@@ -28,7 +28,7 @@ function DropdownSelect({ items, onSelect }) {
             {...getMenuProps()}
             data-active={isOpen ? "" : undefined}
           >
-            {isOpen &&
+            {isOpen && items.length > 0 ? (
               items.map((option, index) => (
                 <li
                   style={
@@ -42,7 +42,15 @@ function DropdownSelect({ items, onSelect }) {
                 >
                   {option}
                 </li>
-              ))}
+              ))
+            ) : isOpen && items.length === 0 ? (
+              <li
+                className={styles["li"]}
+                style={{ cursor: "auto", border: "none" }}
+              >
+                No search terms yet...
+              </li>
+            ) : null}
           </ol>
           {/* if you Tab from menu, focus goes on button, and it shouldn't. only happens here. */}
           <div tabIndex="0" />
